@@ -1,10 +1,10 @@
 import mysql.connector
 from mysql.connector import errorcode
 
+# Database connection 
 DB_HOST = "localhost"
 DB_USER = "root"  
-DB_PASSWORD = "mycountryKenya254"  
-DATABASE_NAME = "alx_book_store"
+DB_PASSWORD = "mycountryKenya254" 
 
 def create_database():
     cnx = None
@@ -18,11 +18,10 @@ def create_database():
         )
         cursor = cnx.cursor()
 
-        create_db_query = f"CREATE DATABASE IF NOT EXISTS {DATABASE_NAME}"
-        
+        create_db_query = "CREATE DATABASE IF NOT EXISTS alx_book_store"
         cursor.execute(create_db_query)
 
-        print(f"Database '{DATABASE_NAME}' created successfully!")
+        print("Database 'alx_book_store' created successfully!")
 
     except mysql.connector.Error as err:
         if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
